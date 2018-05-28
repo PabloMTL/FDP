@@ -102,3 +102,25 @@
 
 
 ;(not (empty? lista))
+
+
+
+;PUNTO 8
+
+(define extraer_elemento (lambda (pos listado)
+(letrec (
+(funcion (lambda (contador posicion lista)
+(if (null? lista)
+'()
+(if (= contador posicion)
+(cdr lista) 
+(cons (car lista) (funcion (+ contador 1) posicion (cdr lista)))
+);if
+);if
+);lambda
+);funcion
+)
+(funcion 1 pos listado)
+);letrec 
+);lambda
+);define
